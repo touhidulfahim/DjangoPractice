@@ -9,10 +9,29 @@
   <body>
     <h1>This is homepage of First App</h1>
     {{text_1}}
-    <img src="{% static "images/banner3.jpg"%}">
+      <img src="{% static "images/banner3.jpg"%}">
+<table width="100%">
+  <thead>
+    <tr>
+      <td>FirtName</td>
+      <td>LastName</td>
+      <td>Instrument</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {% for row in musician %}
+    </tr>
+    <tr>
+      <td>{{row.first_name}}</td>
+      <td>{{row.last_name}}</td>
+      <td>{{row.instrument}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
     <button  onclick="copyToClipboard()">CLICK ME</button>
     <script type="text/javascript" src="{% static "js/main.js"%}">
-    
     </script>
   </body>
 </html>
