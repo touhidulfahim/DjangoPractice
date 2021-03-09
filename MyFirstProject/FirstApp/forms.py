@@ -1,6 +1,8 @@
 from django import forms
+from django.core import validators
+from FirstApp import models
 
-class user_form(forms.Form):
-    user_name=forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Please enter valid username'}))
-    user_email=forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Please enter valid email'}))
-    user_dob=forms.DateField(label='Birth Date', widget=forms.TextInput(attrs={'type':'date'}))
+class MusicianForm(forms.ModelForm):
+    class Meta:
+        model=models.Musician
+        fields="__all__"

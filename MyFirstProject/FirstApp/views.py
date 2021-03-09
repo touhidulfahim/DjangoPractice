@@ -6,23 +6,18 @@ from FirstApp import forms
 
 def index(request):
     musician_list=Musician.objects.order_by('first_name')
-    diction={'musician':musician_list}
+    diction={'text_1':'This a list of Musicians','musician':musician_list}
     return render(request,'FirstApp/index.html',context=diction)
 
 def form(request):
-    new_forms=forms.user_form()
-    diction={'userForm':new_forms}
+    new_form=forms.MusicianForm()
     if request.method=='POST':
-        new_forms=forms.user_form(request.POST)
-        if new_forms.is_valid():
-            user_name=new_forms.cleaned_data['user_name']
-            user_email=new_forms.cleaned_data['user_email']
-            user_dob=new_forms.cleaned_data['user_dob']
-
-            diction.update({'user_name':user_name})
-            diction.update({'user_dob':user_dob})
-            diction.update({'user_email':user_email})
-            diction.update({'form_submited':"Yes"})
+        new_form=forms.MusicianForm(request.POST)
+        if new_form.is_valid():
+            new_form.save(commit=True)
+            return index(request)
 
 
+
+    diction={'test_form': new_form,'heading_1':'Add new Musician'}
     return render (request, 'FirstApp/form.html', context=diction)
