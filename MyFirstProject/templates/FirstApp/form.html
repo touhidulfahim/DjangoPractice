@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Form</title>
+  </head>
+  <body>
+<h1>Form</h1>
+<form action="" method="POST">
+  {{userForm.as_p}}
+  {% csrf_token %}
+  <input type="submit" name="submit" value="Submit">
+</form>
+<hr>
+{% if form_submited %}
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Birth Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{user_name}}</td>
+      <td>{{user_email}}</td>
+      <td>{{user_dob}}</td>
+    </tr>
+  </tbody>
+</table>
+{% endif %}
+  </body>
+</html>
