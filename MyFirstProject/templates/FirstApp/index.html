@@ -1,4 +1,27 @@
 {% extends 'FirstApp/base.html' %}
 {% block body_block %}
-<h1>Index</h1>
+<h1>List of Musicians:</h1>
+<ul>
+  {% if musician_list %}
+  {% for musician in musician_list %}
+  <li>{{musician.first_name}} {{musician.last_name}} {{musician.instrument}}</li>
+  {% endfor %}
+  {% else %}
+  {% endif %}
+</ul>
+<h1>Album List:</h1>
+
+<ul>
+  {% if album_list %}
+  {% for album in album_list %}
+  <li>{{album.name}} {{album.release_date}} {{album.rating}}</li>
+  {% endfor %}
+  {% else %}
+  {% endif %}
+</ul>
+
+
+
+
+
 {% endblock %}

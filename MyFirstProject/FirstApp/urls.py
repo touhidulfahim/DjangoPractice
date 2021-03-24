@@ -9,4 +9,5 @@ urlpatterns=[
     path('', views.index, name='index'),
     path('album/', views.album_form, name='Album'),
     path('musician/', views.musician_form, name='Musician')
+
 ]
