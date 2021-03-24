@@ -7,5 +7,6 @@ app_name="FirstApp"
 
 urlpatterns=[
     path('', views.index, name='index'),
-    path('form', views.form, name='form')
+    path('album/', views.album_form, name='Album'),
+    path('musician/', views.musician_form, name='Musician')
 ]

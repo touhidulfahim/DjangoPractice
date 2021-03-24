@@ -6,16 +6,16 @@ from FirstApp import forms
 
 def index(request):
     diction={'title':"Home Page"}
-    return render(request,'',context=diction)
+    return render(request,'FirstApp/index.html',context=diction)
 
 def album_list(request):
     diction={'title':"List of Albums"}
-    return render(request,'', context=diction)
+    return render(request,'FirstApp/albumlist.html', context=diction)
 
 def musician_form(request):
     diction={'title':"Add Musician"}
-    return render(request,'', context=diction)
+    return render(request,'FirstApp/musician.html', context=diction)
 
 def album_form(request):
     diction={'title':"Add Album"}
-    return render(request,'', context=diction)
+    return render(request,'FirstApp/album.html', context=diction)
