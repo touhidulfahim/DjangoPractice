@@ -5,19 +5,17 @@ from FirstApp import forms
 # Create your views here.
 
 def index(request):
-    musician_list=Musician.objects.order_by('first_name')
-    diction={'text_1':'This a list of Musicians','musician':musician_list}
-    return render(request,'FirstApp/index.html',context=diction)
+    diction={'title':"Home Page"}
+    return render(request,'',context=diction)
 
-def form(request):
-    new_form=forms.MusicianForm()
-    if request.method=='POST':
-        new_form=forms.MusicianForm(request.POST)
-        if new_form.is_valid():
-            new_form.save(commit=True)
-            return index(request)
+def album_list(request):
+    diction={'title':"List of Albums"}
+    return render(request,'', context=diction)
 
+def musician_form(request):
+    diction={'title':"Add Musician"}
+    return render(request,'', context=diction)
 
-
-    diction={'test_form': new_form,'heading_1':'Add new Musician'}
-    return render (request, 'FirstApp/form.html', context=diction)
+def album_form(request):
+    diction={'title':"Add Album"}
+    return render(request,'', context=diction)

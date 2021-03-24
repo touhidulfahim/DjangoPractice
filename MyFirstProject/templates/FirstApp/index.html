@@ -1,37 +1,5 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Home</title>
-    <link rel="stylesheet" href="{% static "css/main.css" %}">
-  </head>
-  <body>
-    <h1>This is homepage of First App</h1>
-    {{text_1}}
-    <a href="{% url 'FirstApp:form' %}">Add New</a>
-<table width="100%">
-  <thead>
-    <tr>
-      <td>FirtName</td>
-      <td>LastName</td>
-      <td>Instrument</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      {% for row in musician %}
-    </tr>
-    <tr>
-      <td>{{row.first_name}}</td>
-      <td>{{row.last_name}}</td>
-      <td>{{row.instrument}}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-    <button  onclick="copyToClipboard()">CLICK ME</button>
-    <script type="text/javascript" src="{% static "js/main.js"%}">
-    </script>
-  </body>
-</html>
+{%extends "first_app/base.html"%}
+{%block body_block%}
+<h1>Hi This is index</h1>
+{%endblock%}
