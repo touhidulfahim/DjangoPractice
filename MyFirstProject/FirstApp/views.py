@@ -28,6 +28,19 @@ def musician_form(request):
     diction={'title':"Add Musician", 'musician_form': form}
     return render(request,'FirstApp/musician.html', context=diction)
 
+
+def edit_artist(request, artist_id):
+    artist_info=Musician.objects.get(pk=artist_id)
+    form=forms.MusicianForm(instance=artist_info)
+    if request.method=='POST':
+        form=forms.MusicianForm(request.POST, instance=artist_info)
+        if form.is_valid():
+            form.save(commit=True)
+            return album_list(request, artist_id)
+    diction={'title':"Edit Musician", 'edit_musician_form': form}
+    return render(request,'FirstApp/editartist.html', context=diction)
+
+
 def album_form(request):
     form=forms.AlbumForm()
 
@@ -38,3 +51,17 @@ def album_form(request):
             return index(request)
     diction={'title':"Add Album", 'album_form':form}
     return render(request,'FirstApp/album.html', context=diction)
+
+def edit_album(request, album_id):
+    album_info=Album.objects.get(pk=album_id)
+    form=forms.AlbumForm(instance=album_info)
+    diction = {}
+    if request.method=='POST':
+        form=forms.AlbumForm(request.POST,instance=album_info)
+        if form.is_valid():
+            form.save(commit=True)
+            diction.update({'success_text':'Successfully Updated!'})
+
+    diction.update({'edit_album_form':form})
+    diction.update({'album_id':album_id})
+    return render(request,'FirstApp/editalbum.html', context=diction)

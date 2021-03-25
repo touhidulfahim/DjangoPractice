@@ -3,13 +3,14 @@
 
 <h2>Artist Info</h2>
 <h4>Name: {{artist.first_name}} {{artist.last_name}},  Instrument: {{artist.instrument}}, Rating: {{AvgRating.num_stars__avg}}</h4>
-
+<a href="{% url 'FirstApp:editartist' artist_id=artist.id %}" class="btn btn-warning btn-sm">Edit Artist</a>
 <table class="table table-sm">
   <thead>
     <tr>
       <th>Name</th>
       <th>Release Date</th>
       <th>Rating</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,9 @@
       <td>{{album.name}}</td>
       <td>{{album.release_date | date:"M d, Y"}}</td>
       <td>{{album.num_stars}}</td>
+      <td>
+        <a href="{% url 'FirstApp:editalbum' album_id=album.id %}" class="btn btn-warning btn-sm">Edit</a>
+      </td>
     </tr>
     {% endfor %}
   </tbody>
