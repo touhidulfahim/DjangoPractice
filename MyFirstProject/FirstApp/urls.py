@@ -8,6 +8,7 @@ app_name="FirstApp"
 urlpatterns=[
     path('', views.index, name='index'),
     path('album/', views.album_form, name='Album'),
-    path('musician/', views.musician_form, name='Musician')
+    path('musician/', views.musician_form, name='Musician'),
+    path('albumlist/<int:artist_id>/', views.album_list, name='albumlist')
 
 ]
