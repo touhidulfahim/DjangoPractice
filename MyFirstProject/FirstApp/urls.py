@@ -11,5 +11,7 @@ urlpatterns=[
     path('musician/', views.musician_form, name='Musician'),
     path('albumlist/<int:artist_id>/', views.album_list, name='albumlist'),
     path('editartist/<int:artist_id>/', views.edit_artist, name='editartist'),
-    path('editalbum/<int:album_id>/', views.edit_album, name='editalbum')
+    path('editalbum/<int:album_id>/', views.edit_album, name='editalbum'),
+    path('delete_album/<int:album_id>/', views.delete_album, name='delete_album'),
+    path('delete_artist/<int:artist_id>/', views.delete_musician, name='delete_artist')
 ]
